@@ -23,9 +23,48 @@ This is the base Nerves System configuration for the [LinkIt Smart](http://www.s
 
 ## Console access
 
-The console is configured to output to `ttyS2` by default. This is the
-UART output accessible via pins 8 and 9. A 3.3V FTDI
-cable is needed to access the output.
+The console is configured to output to `ttyS2` by default. This is
+accessible via pins 8 (RX) and 9 (TX). A 3.3V FTDI
+cable is needed to access the output. The UART should be configured
+to 57600 8n1.
+
+## Prepping the LinkIt Smart
+
+Before you can use a LinkIt Smart with Nerves, you must update the bootloader.
+Follow these instructions precisely and patiently so that you don't accidentally
+brick your board. If something goes wrong, the board will not boot. You will
+need a SPI NAND Flash programmer to fix it, and given the cost of the board, it
+will be far easier to just buy a new one.
+
+  1. Connect a 3.3V FTDI cable to the LinkIt Smart and verify that you can see
+     text and type. (This step isn't strictly necessary, but it will help debug
+     if anything goes wrong.)
+  2. Download the bootloader from ...
+  3. Copy the bootloader image to an empty flash drive as lks7688.ldr
+  4. Reboot and hold down the 'b' key on the serial port
+  5. Pray
+
+## The bootloader
+
+The LinkIt Smart bootloader is a very customized old version of u-boot. If
+you're familiar with u-boot, forget what you know.
+
+To break into the bootloader, press the `4` key continuously on a reboot.
+
+To load an image over TFTP, press the `1` key continuously on reboot until you
+get a prompt. If you stare hard at the messages, you can see what to type. Keep
+in mind that the rootfs is still on the NAND Flash.
+
+## Going back to OpenWRT
+
+MediaTek and Seeedstudio provide some information about the board that also
+applies to Nerves. If you decide to switch back to OpenWRT, see the following
+links:
+
+http://support.seeedstudio.com/knowledgebase/articles/848667-linkit-smart-7688-duo-sku-102110017
+https://labs.mediatek.com/site/global/developer_tools/mediatek_linkit_smart_7688/training_docs/firmware_and_bootloader/kernel_console/index.gsp
+
+You will need to update both the bootloader and the firmware.
 
 ## Installation
 
