@@ -1,0 +1,7 @@
+# Add project-specific packages for Buildroot here
+#
+# If these are non-proprietary, please consider contributing them back to
+# Nerves or Buildroot.
+
+source "$NERVES_DEFCONFIG_DIR/package/linkit-bootloader/Config.in"
+source "$NERVES_DEFCONFIG_DIR/package/openwrt-utils/Config.in.host"

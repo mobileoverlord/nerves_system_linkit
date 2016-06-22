@@ -1,0 +1,86 @@
+From fa8066f28fc85ae3fb98ba0186333cfbf719be15 Mon Sep 17 00:00:00 2001
+From: Frank Hunleth <fhunleth@troodon-software.com>
+Date: Tue, 21 Jun 2016 14:47:20 -0400
+Subject: [PATCH] Enable gzip to support BR-generated kernels
+
+---
+ config.mk | 20 ++++++++++----------
+ 1 file changed, 10 insertions(+), 10 deletions(-)
+
+diff --git a/config.mk b/config.mk
+index 3c89236..5e43c65 100644
+--- a/config.mk
++++ b/config.mk
+@@ -83,7 +83,7 @@ endif
+ ##############################
+ # Decompression Algorithm
+ ##############################
+-CONFIG_GZIP = OFF
++CONFIG_GZIP = ON
+ CONFIG_BZIP2 = OFF
+ CONFIG_LZMA = ON
+ CONFIG_XZ = OFF
+@@ -402,11 +402,11 @@ ifeq ($(RT2880_ASIC_BOARD),y)
+ CPPFLAGS += -DRT2880_ASIC_BOARD
+ endif
+ 
+-ifeq ($(RT2883_FPGA_BOARD),y)  
++ifeq ($(RT2883_FPGA_BOARD),y)
+ CPPFLAGS += -DRT2883_FPGA_BOARD
+ endif
+ 
+-ifeq ($(RT2883_ASIC_BOARD),y)  
++ifeq ($(RT2883_ASIC_BOARD),y)
+ CPPFLAGS += -DRT2883_ASIC_BOARD
+ endif
+ 
+@@ -471,19 +471,19 @@ ifeq ($(RT3052_ASIC_BOARD),y)
+ CPPFLAGS += -DRT3052_ASIC_BOARD
+ endif
+ 
+-ifeq ($(RT3883_FPGA_BOARD),y)  
++ifeq ($(RT3883_FPGA_BOARD),y)
+ CPPFLAGS += -DRT3883_FPGA_BOARD
+ endif
+ 
+-ifeq ($(RT3883_ASIC_BOARD),y)  
++ifeq ($(RT3883_ASIC_BOARD),y)
+ CPPFLAGS += -DRT3883_ASIC_BOARD
+ endif
+ 
+-ifeq ($(RT6855A_FPGA_BOARD),y)  
++ifeq ($(RT6855A_FPGA_BOARD),y)
+ CPPFLAGS += -DRT6855A_FPGA_BOARD
+ endif
+ 
+-ifeq ($(RT6855A_ASIC_BOARD),y)  
++ifeq ($(RT6855A_ASIC_BOARD),y)
+ CPPFLAGS += -DRT6855A_ASIC_BOARD
+ endif
+ 
+@@ -545,11 +545,11 @@ endif
+ 
+ ifdef MAC_TO_GIGAPHY_MODE_ADDR
+ CPPFLAGS += -DMAC_TO_GIGAPHY_MODE_ADDR=$(MAC_TO_GIGAPHY_MODE_ADDR)
+-endif 
++endif
+ 
+ ifdef MAC_TO_GIGAPHY_MODE_ADDR2
+ CPPFLAGS += -DMAC_TO_GIGAPHY_MODE_ADDR2=$(MAC_TO_GIGAPHY_MODE_ADDR2)
+-endif 
++endif
+ 
+ ifeq ($(MAC_TO_100SW_MODE),y)
+ CPPFLAGS += -DMAC_TO_100SW_MODE
+@@ -742,7 +742,7 @@ ifeq ($(ON_BOARD_NAND_FLASH_COMPONENT),y)
+ CFG_ENV_IS := IN_NAND
+ ifeq ($(MT7621_MP), y)
+ CPPFLAGS += -DMTK_NAND
+-endif	
++endif
+ else
+ ifeq ($(ON_BOARD_SPI_FLASH_COMPONENT),y)
+ CFG_ENV_IS := IN_SPI
+-- 
+2.5.0
+
