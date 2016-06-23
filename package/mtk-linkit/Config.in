@@ -1,0 +1,7 @@
+config BR2_PACKAGE_MTK_LINKIT
+	bool "mtk-linkit"
+	help
+	  This is a collection of utilities from OpenWRT for use on the
+	  LinkIt Smart 7688.
+
+	  https://github.com/MediaTek-Labs/linkit-smart-7688-feed/tree/master/mtk-linkit/
