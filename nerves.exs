@@ -5,15 +5,18 @@ version =
   |> File.read!
   |> String.strip
 
-config :nerves_system_bbb, :nerves_env,
+config :nerves_system_linkit, :nerves_env,
   type: :system,
   version: version,
   mirrors: [
-    "https://github.com/nerves-project/nerves_system_bbb/releases/download/v#{version}/nerves_system_bbb-v#{version}.tar.gz"],
+    "https://github.com/nerves-project/nerves_system_linkit/releases/download/v#{version}/nerves_system_linkit-v#{version}.tar.gz"],
   build_platform: Nerves.System.Platforms.BR,
   build_config: [
     defconfig: "nerves_defconfig",
     package_files: [
+      "Config.in",
+      "external.mk",
+      "package",
       "rootfs-additions"
     ]
   ]
