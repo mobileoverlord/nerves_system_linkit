@@ -33,7 +33,9 @@ defmodule NervesSystemLinkit.Mixfile do
 
   defp package do
     [maintainers: ["Frank Hunleth", "Justin Schneck"],
-     files: ["rootfs-additions", "LICENSE", "mix.exs", "nerves_defconfig", "nerves.exs", "README.md", "VERSION", "rootfs-additions", "Config.in", "external.mk", "package"],
+     files: ["rootfs-additions", "LICENSE", "mix.exs", "nerves_defconfig",
+       "nerves.exs", "README.md", "VERSION", "rootfs-additions", "Config.in",
+       "external.mk", "package", "post-createfs.sh", "fwup.conf"],
      licenses: ["Apache 2.0"],
      links: %{"Github" => "https://github.com/nerves-project/nerves_system_linkit"}]
   end

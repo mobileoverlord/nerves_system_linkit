@@ -17,6 +17,8 @@ config :nerves_system_linkit, :nerves_env,
       "Config.in",
       "external.mk",
       "package",
-      "rootfs-additions"
+      "rootfs-additions",
+      "post-createfs.sh",
+      "fwup.conf"
     ]
   ]
