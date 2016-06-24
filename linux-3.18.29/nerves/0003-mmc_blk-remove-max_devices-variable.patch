@@ -1,0 +1,116 @@
+From d736b28a7c5f6fe7a10066699f6b0f2ed0e28fba Mon Sep 17 00:00:00 2001
+From: Frank Hunleth <fhunleth@troodon-software.com>
+Date: Wed, 22 Jun 2016 13:39:18 -0400
+Subject: [PATCH] mmc_blk: remove max_devices variable
+
+For unknown reasons, this variable would get corrupt between
+initialization and use. It was also only this variable and adding guard
+variables around it didn't change anything. Normally, I'd expect this
+issue to point to a larger problem, but I couldn't find it. To work
+around the corruption, I removed all of the code and data related to it.
+I can't imagine ever using the feature anyway.
+
+Signed-off-by: Frank Hunleth <fhunleth@troodon-software.com>
+---
+ drivers/mmc/card/block.c | 34 +++++++---------------------------
+ 1 file changed, 7 insertions(+), 27 deletions(-)
+
+diff --git a/drivers/mmc/card/block.c b/drivers/mmc/card/block.c
+index 10ecc0a..6e8b2da 100644
+--- a/drivers/mmc/card/block.c
++++ b/drivers/mmc/card/block.c
+@@ -70,18 +70,6 @@ MODULE_ALIAS("mmc:block");
+ 
+ static DEFINE_MUTEX(block_mutex);
+ 
+-/*
+- * The defaults come from config options but can be overriden by module
+- * or bootarg options.
+- */
+-static int perdev_minors = CONFIG_MMC_BLOCK_MINORS;
+-
+-/*
+- * We've only got one major, so number of mmcblk devices is
+- * limited to 256 / number of minors per device.
+- */
+-static int max_devices;
+-
+ /* 256 minors, so at most 256 separate devices */
+ static DECLARE_BITMAP(dev_use, 256);
+ static DECLARE_BITMAP(name_use, 256);
+@@ -129,9 +117,6 @@ enum {
+ 	MMC_PACKED_NR_SINGLE,
+ };
+ 
+-module_param(perdev_minors, int, 0444);
+-MODULE_PARM_DESC(perdev_minors, "Minors numbers to allocate per device");
+-
+ static inline int mmc_blk_part_switch(struct mmc_card *card,
+ 				      struct mmc_blk_data *md);
+ static int get_card_status(struct mmc_card *card, u32 *status, int retries);
+@@ -167,10 +152,10 @@ static struct mmc_blk_data *mmc_blk_get(struct gendisk *disk)
+ static inline int mmc_get_devidx(struct gendisk *disk)
+ {
+ 	int devmaj = MAJOR(disk_devt(disk));
+-	int devidx = MINOR(disk_devt(disk)) / perdev_minors;
++	int devidx = MINOR(disk_devt(disk)) / CONFIG_MMC_BLOCK_MINORS;
+ 
+ 	if (!devmaj)
+-		devidx = disk->first_minor / perdev_minors;
++		devidx = disk->first_minor / CONFIG_MMC_BLOCK_MINORS;
+ 	return devidx;
+ }
+ 
+@@ -2096,8 +2081,8 @@ static struct mmc_blk_data *mmc_blk_alloc_req(struct mmc_card *card,
+ 	struct mmc_blk_data *md;
+ 	int devidx, ret;
+ 
+-	devidx = find_first_zero_bit(dev_use, max_devices);
+-	if (devidx >= max_devices)
++	devidx = find_first_zero_bit(dev_use, (256 / CONFIG_MMC_BLOCK_MINORS));
++	if (devidx >= (256 / CONFIG_MMC_BLOCK_MINORS))
+ 		return ERR_PTR(-ENOSPC);
+ 	__set_bit(devidx, dev_use);
+ 
+@@ -2114,7 +2099,7 @@ static struct mmc_blk_data *mmc_blk_alloc_req(struct mmc_card *card,
+ 	 * index anymore so we keep track of a name index.
+ 	 */
+ 	if (!subname) {
+-		md->name_idx = find_first_zero_bit(name_use, max_devices);
++		md->name_idx = find_first_zero_bit(name_use, (256 / CONFIG_MMC_BLOCK_MINORS));
+ 		__set_bit(md->name_idx, name_use);
+ 	} else
+ 		md->name_idx = ((struct mmc_blk_data *)
+@@ -2128,7 +2113,7 @@ static struct mmc_blk_data *mmc_blk_alloc_req(struct mmc_card *card,
+ 	 */
+ 	md->read_only = mmc_blk_readonly(card);
+ 
+-	md->disk = alloc_disk(perdev_minors);
++	md->disk = alloc_disk(CONFIG_MMC_BLOCK_MINORS);
+ 	if (md->disk == NULL) {
+ 		ret = -ENOMEM;
+ 		goto err_kfree;
+@@ -2146,7 +2131,7 @@ static struct mmc_blk_data *mmc_blk_alloc_req(struct mmc_card *card,
+ 	md->queue.data = md;
+ 
+ 	md->disk->major	= MMC_BLOCK_MAJOR;
+-	md->disk->first_minor = devidx * perdev_minors;
++	md->disk->first_minor = devidx * CONFIG_MMC_BLOCK_MINORS;
+ 	md->disk->fops = &mmc_bdops;
+ 	md->disk->private_data = md;
+ 	md->disk->queue = md->queue.queue;
+@@ -2576,11 +2561,6 @@ static int __init mmc_blk_init(void)
+ {
+ 	int res;
+ 
+-	if (perdev_minors != CONFIG_MMC_BLOCK_MINORS)
+-		pr_info("mmcblk: using %d minors per device\n", perdev_minors);
+-
+-	max_devices = 256 / perdev_minors;
+-
+ 	res = register_blkdev(MMC_BLOCK_MAJOR, "mmc");
+ 	if (res)
+ 		goto out;
+-- 
+2.5.0
+
