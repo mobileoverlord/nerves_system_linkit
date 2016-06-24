@@ -21,7 +21,7 @@ defmodule NervesSystemLinkit.Mixfile do
 
   defp deps do
     [{:nerves_system, "~> 0.1.4"},
-     {:nerves_system_br, github: "nerves-project/nerves_system_br", ref: "b9fa31e30c2b0b615739dc30151a089360c97ca9"},
+     {:nerves_system_br, github: "nerves-project/nerves_system_br", ref: "5f440fe11eea377486f43fdc88d85085bed9fb8e"},
      {:nerves_toolchain_mipsel_unknown_linux_musl, "~> 0.6.3"}]
   end
 
