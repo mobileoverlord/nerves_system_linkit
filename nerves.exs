@@ -19,6 +19,7 @@ config :nerves_system_linkit, :nerves_env,
       "package",
       "rootfs-additions",
       "post-createfs.sh",
-      "fwup.conf"
+      "fwup.conf",
+      "linux-3.18.29"
     ]
   ]
