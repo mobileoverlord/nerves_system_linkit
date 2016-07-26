@@ -34,15 +34,38 @@ Before you can use a LinkIt Smart with Nerves, you must update the bootloader.
 Follow these instructions precisely and patiently so that you don't accidentally
 brick your board. If something goes wrong, the board will not boot. You will
 need a SPI NAND Flash programmer to fix it, and given the cost of the board, it
-will be far easier to just buy a new one.
+probably is easier to just buy a new LinkIt Smart.
 
-  1. Connect a 3.3V FTDI cable to the LinkIt Smart and verify that you can see
-     text and type. (This step isn't strictly necessary, but it will help debug
-     if anything goes wrong.)
-  2. Download the bootloader from ...
-  3. Copy the bootloader image to an empty flash drive as lks7688.ldr
-  4. Reboot and hold down the 'b' key on the serial port
-  5. Pray
+You'll need a normal USB flash drive and an On-the-go cable to plug it into the
+USB port on the LinkIt Smart. The USB flash drive should have a FAT filesystem
+on it. If you're not sure, you probably are ok.
+
+Download the Nerves LinkIt Smart bootloader and Linux kernel images and place
+them in the root directory of the USB flash drive. They should be named
+`lks7688.ldr` and `lks7688.img`.
+
+Then do the following:
+
+  1. Connect a 3.3V FTDI cable (GND, RX, and TX) to the LinkIt Smart. Power up
+     the LinkIt Smart and verify that you can see text and type. You should be
+     interacting with the default OpenWRT firmware.
+  2. Remove power from the LinkIt Smart
+  3. Plug the USB Flash drive into the LinkIt Smart via the On-the-go cable.
+     Make sure that it's plugged into the `USB Host` connector.
+  4. Apply power to the LinkIt Smart and get ready for the next step
+  5. Press the 'b' key repeatedly on the serial port until you see that it
+     is programming the Flash.
+  6. When the programming completes, the LinkIt Smart will reboot. You'll still
+     get prints OpenWRT.
+  7. Now reboot (remove/apply power) or press the `MPU` reset button.
+  8. Press the '5' key repeatedly on the serial port until you see that it is
+     programming the Flash.
+
+Now you're done. The next reboot will load Nerves. Keep in mind that Nerves
+requires an SDCard with the root filesystem on it to work. This isn't necessary
+for production, but it's much and convenient during development. If you don't
+have an SDCard image yet, go through the normal Nerves workflow and `mix burn`
+yourself one. Insert it and reboot and you should have an `iex` prompt.
 
 ## The bootloader
 
