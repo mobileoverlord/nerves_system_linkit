@@ -5,5 +5,6 @@
 
 source "$NERVES_DEFCONFIG_DIR/package/linkit-bootloader/Config.in"
 source "$NERVES_DEFCONFIG_DIR/package/mtk-linkit/Config.in"
+source "$NERVES_DEFCONFIG_DIR/package/mtk-sdk-wifi/Config.in"
 source "$NERVES_DEFCONFIG_DIR/package/openwrt-utils/Config.in.host"
 source "$NERVES_DEFCONFIG_DIR/package/swconfig/Config.in"
