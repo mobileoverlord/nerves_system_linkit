@@ -11,7 +11,7 @@ This is the base Nerves System configuration for the [LinkIt Smart](http://www.s
 | CPU                  | 580 MHz MIPS24KEc               |
 | Memory               | 128 MB DRAM                     |
 | Storage              | 32 MB NAND Flash and MicroSD    |
-| Linux kernel         | 3.18.29 w/ patches              |
+| Linux kernel         | 4.4.14 w/ OpenWRT patches       |
 | IEx terminal         | ttyS2 via FTDI pins             |
 | GPIO, I2C, SPI       | Yes - Elixir ALE                |
 | ADC                  | Yes, on Duo's ATmega32U4        |
@@ -110,18 +110,9 @@ If [available in Hex](https://hex.pm/docs/publish), the package can be installed
 The official defconfig and kernel patches for the MT7688 on the LinkIt Smart
 are found in the OpenWRT repository. See https://dev.openwrt.org/wiki/GetSource.
 
-One would think that the Linux defconfig is in `openwrt/target/linux/ramips/mt7688`,
-but that doesn't seem to be the one that OpenWRT uses. Nerves started with the `.config` file
-from
-`openwrt/build_dir/target-mipsel_24kec+dsp_uClibc-0.9.33.2/linux-ramips_mt7688/linux-3.18.29`
-instead.
+This repository uses the OpenWRT Linux 4.4 patch set. They can be found in the
+following directories:
 
-OpenWRT quite heavily patches the Linux kernel. As I find unused patches, I remove them, but
-there are still hundreds. The patches are split between extra files and patches. The files
-originate in `openwrt/target/linux/generic/files` and `openwrt/target/linux/ramips/files`.
-Those are added to the Linux kernel built by Nerves (Buildroot) via a large patch in the
-`linux-3.18.29/nerves` directory. The rest of the OpenWRT patches are in `patches-3.18`
-directories for both `generic` and `mt7688`. To double check or update the patches here,
-take a look at the OpenWRT build directory:
-`openwrt/build_dir/target-mipsel_24kec+dsp_uClibc-0.9.33.2/linux-ramips_mt7688/linux-3.18.29/patches`
+https://github.com/openwrt/openwrt/tree/master/target/linux/generic
+https://github.com/openwrt/openwrt/tree/master/target/linux/ramips/patches-4.4
 
