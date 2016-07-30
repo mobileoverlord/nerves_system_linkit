@@ -4,5 +4,6 @@
 # Nerves or Buildroot.
 
 source "$NERVES_DEFCONFIG_DIR/package/linkit-bootloader/Config.in"
+source "$NERVES_DEFCONFIG_DIR/package/openwrt-compat-wireless/Config.in"
 source "$NERVES_DEFCONFIG_DIR/package/mtk-linkit/Config.in"
 source "$NERVES_DEFCONFIG_DIR/package/swconfig/Config.in"

@@ -1,0 +1,48 @@
+comment "openwrt-compat-wireless needs a Linux kernel to be built"
+	depends on !BR2_LINUX_KERNEL
+
+config BR2_PACKAGE_OPENWRT_COMPAT_WIRELESS
+	bool "openwrt-compat-wireless"
+	depends on BR2_LINUX_KERNEL
+	help
+	  This is a very special version of linux-backports that was found in
+	  OpenWRT. It is needed to build the mt76 wifi drivers.
+
+if BR2_PACKAGE_OPENWRT_COMPAT_WIRELESS
+
+choice
+	prompt "Linux kernel driver backports configuration"
+	default BR2_PACKAGE_OPENWRT_COMPAT_WIRELESS_USE_DEFCONFIG
+
+config BR2_PACKAGE_OPENWRT_COMPAT_WIRELESS_USE_DEFCONFIG
+	bool "Using an in-tree defconfig file"
+
+config BR2_PACKAGE_OPENWRT_COMPAT_WIRELESS_USE_CUSTOM_CONFIG
+	bool "Using a custom (def)config file"
+
+endchoice
+
+config BR2_PACKAGE_OPENWRT_COMPAT_WIRELESS_DEFCONFIG
+	string "Defconfig name"
+	depends on BR2_PACKAGE_OPENWRT_COMPAT_WIRELESS_USE_DEFCONFIG
+	help
+	  Name of the backports defconfig file to use, without the
+	  leading defconfig-. The defconfig is located in defconfigs/
+	  directory in the backports tree.
+
+config BR2_PACKAGE_OPENWRT_COMPAT_WIRELESS_CUSTOM_CONFIG_FILE
+	string "Configuration file path"
+	depends on BR2_PACKAGE_OPENWRT_COMPAT_WIRELESS_USE_CUSTOM_CONFIG
+	help
+	  Path to the backports configuration file
+
+	  Note: this can be a defconfig file or a complete .config file,
+	  which can later be saved back with make linux-update-(def)config.
+
+config BR2_PACKAGE_OPENWRT_COMPAT_WIRELESS_CONFIG_FRAGMENT_FILES
+	string "Additional configuration fragment files"
+	help
+	  A space-separated list of configuration fragment files, that
+	  will be merged to the main openwrt-compat-wireless configuration file.
+
+endif # BR2_PACKAGE_OPENWRT_COMPAT_WIRELESS
