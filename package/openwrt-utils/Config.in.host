@@ -1,7 +1,0 @@
-config BR2_PACKAGE_HOST_OPENWRT_UTILS
-	bool "host openwrt-utils"
-	help
-	  This is a collection of utilities from OpenWRT required for creating
-	  firmware images with their kernel patches.
-
-	  http://openwrt.com/

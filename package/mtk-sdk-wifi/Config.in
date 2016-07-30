@@ -1,9 +1,0 @@
-config BR2_PACKAGE_MTK_SDK_WIFI
-	bool "mtk-sdk-wifi"
-	depends on BR2_LINUX_KERNEL
-	select BR2_LINUX_NEEDS_MODULES # not using kernel-module infra
-	help
-	  This project contains the LinkIt Smart 7688's proprietary Wi-Fi drivers
-	  as included in OpenWRT. Modifications were made to pull them into Nerves.
-
-	  https://github.com/MediaTek-Labs/linkit-smart-7688-feed/tree/master/mtk-sdk-wifi
