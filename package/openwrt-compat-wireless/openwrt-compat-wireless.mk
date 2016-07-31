@@ -25,6 +25,12 @@ endif
 OPENWRT_COMPAT_WIRELESS_KCONFIG_FRAGMENT_FILES = $(call qstrip,$(BR2_PACKAGE_OPENWRT_COMPAT_WIRELESS_CONFIG_FRAGMENT_FILES))
 OPENWRT_COMPAT_WIRELESS_KCONFIG_OPTS = $(OPENWRT_COMPAT_WIRELESS_MAKE_OPTS)
 
+# Copy the db.txt that would have been used by the kernel over here
+define OPENWRT_COMPAT_WIRELESS_COPY_DB_TXT
+	cp $(LINUX_DIR)/net/wireless/db.txt $(@D)/net/wireless/db.txt
+endef
+OPENWRT_COMPAT_WIRELESS_POST_PATCH_HOOKS += OPENWRT_COMPAT_WIRELESS_COPY_DB_TXT
+
 # openwrt-compat-wireless' build system expects the config options to be present
 # in the environment, and it is so when using their custom buildsystem,
 # because they are set in the main Makefile, which then calls a second
