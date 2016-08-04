@@ -9,9 +9,10 @@ defmodule NervesSystemLinkit.Mixfile do
     [app: :nerves_system_linkit,
      version: @version,
      elixir: "~> 1.2",
-     compilers: Mix.compilers ++ [:nerves_system],
+     compilers: Mix.compilers ++ [:nerves_package],
      description: description,
      package: package,
+     aliases: ["deps.precompile": ["nerves.env", "deps.precompile"]],
      deps: deps]
   end
 
@@ -20,10 +21,12 @@ defmodule NervesSystemLinkit.Mixfile do
   end
 
   defp deps do
-    [{:nerves_system, "~> 0.1.4"},
-     {:nerves_system_br, github: "nerves-project/nerves_system_br", ref: "3759c4af12d4ce67d4ec60851d842d64f41e9f60"},
+    [#{:nerves, github: "nerves-project/nerves", branch: "pkg_gen", override: true},
+     {:nerves, path: "/Users/jschneck/Developer/nerves/dev/nerves", override: true},
+     {:nerves_system_br, github: "nerves-project/nerves_system_br", branch: "pkginfo"},
      #{:nerves_system_br, "~> 0.6.0"},
-     {:nerves_toolchain_mipsel_unknown_linux_musl, "~> 0.6.3"}]
+     #{:nerves_toolchain_mipsel_unknown_linux_musl, "~> 0.6.3"}]
+     {:nerves_toolchain_mipsel_unknown_linux_musl, path: "../nerves_toolchain_mipsel_unknown_linux_musl"}]
   end
 
   defp description do
