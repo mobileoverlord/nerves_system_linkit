@@ -1,5 +1,5 @@
 %{"nerves_system": {:hex, :nerves_system, "0.1.5", "3b523a49eb6c0f49239d1354b772d824be9d62be13651fe2878a9ba5ffd737b0", [:mix], [{:porcelain, "~> 2.0", [hex: :porcelain, optional: false]}]},
-  "nerves_system_br": {:git, "https://github.com/nerves-project/nerves_system_br.git", "0fe24ee5b37a3a0fb75e6799f9a50ad9d9502428", [ref: "0fe24ee5b37a3a0fb75e6799f9a50ad9d9502428"]},
+  "nerves_system_br": {:git, "https://github.com/nerves-project/nerves_system_br.git", "4ef4fa3a8203535d5b14d92d2ec3ff1973daf929", [ref: "4ef4fa3a8203535d5b14d92d2ec3ff1973daf929"]},
   "nerves_toolchain": {:hex, :nerves_toolchain, "0.6.3", "c592ea6a189504b1c130510a3c5c2aaf8b73c994628b43d0195544d718c04fb3", [:mix], []},
   "nerves_toolchain_mipsel_unknown_linux_musl": {:hex, :nerves_toolchain_mipsel_unknown_linux_musl, "0.6.3", "0a7012f43c710ec31aa6576cc96ed4fc9088c076167312c29200f590a3a244f1", [:mix], [{:nerves_toolchain, "~> 0.6.2", [hex: :nerves_toolchain, optional: false]}]},
   "porcelain": {:hex, :porcelain, "2.0.1", "9c3db2b47d8cf6879c0d9ac79db8657333974a88faff09e856569e00c1b5e119", [:mix], []}}
