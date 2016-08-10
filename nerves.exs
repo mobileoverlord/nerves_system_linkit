@@ -22,6 +22,7 @@ config :nerves_system_linkit, :nerves_env,
       "post-createfs.sh",
       "fwup.conf",
       "linux-4.4",
-      "busybox.config"
+      "busybox.config",
+      "linux-backports.defconfig"
     ]
   ]
