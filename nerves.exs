@@ -21,7 +21,7 @@ config :nerves_system_linkit, :nerves_env,
       "rootfs-additions",
       "post-createfs.sh",
       "fwup.conf",
-      "linux-3.18.29",
+      "linux-4.4",
       "busybox.config"
     ]
   ]
