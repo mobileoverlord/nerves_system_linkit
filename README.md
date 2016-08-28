@@ -89,6 +89,22 @@ https://labs.mediatek.com/site/global/developer_tools/mediatek_linkit_smart_7688
 
 You will need to update both the bootloader and the firmware.
 
+## Firmware updates
+
+Due to the kernel and rootfs being split across the onboard NAND and the SDCard,
+the firmware update process is less than ideal. Currently only the rootfs gets
+updated if you're using the normal Nerves `fwup` proceedures. To update the
+kernel, you must to it manually. The kernel is included in the rootfs in the
+`/boot` directory. After updating the rootfs, you can run:
+```
+iex> os.cmd 'dd if=/boot/uImage of=/dev/mtdblock3 bs=1M'
+```
+
+If you'd like to automate this more, update the `fwup.conf` file to include
+the kernel. You'll see comments about this. We used to do this, but then
+found it less tedious to do the above. In a production system, this issue
+should be fixed. Ideally, the rootfs would be on the NAND as well.
+
 ## Installation
 
 If [available in Hex](https://hex.pm/docs/publish), the package can be installed as:
