@@ -1,6 +1,11 @@
 # Changelog
 
-## v0.6.2-dev
+## v0.6.2
+
+  * Bug fixes
+    * Enable /dev/mem
+    * Move Linux kernel to /boot, since that turned out to be an easier way to
+      update in the near-term
 
 ## v0.6.1
 

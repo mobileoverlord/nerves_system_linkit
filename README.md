@@ -112,7 +112,7 @@ If [available in Hex](https://hex.pm/docs/publish), the package can be installed
   1. Add nerves_system_linkit to your list of dependencies in `mix.exs`:
 
         def deps do
-          [{:nerves_system_linkit, "~> 0.6.1"}]
+          [{:nerves_system_linkit, "~> 0.6.2"}]
         end
 
   2. Ensure nerves_system_linkit is started before your application:
