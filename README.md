@@ -42,7 +42,8 @@ on it. If you're not sure, you probably are ok.
 
 Download the Nerves LinkIt Smart bootloader and Linux kernel images and place
 them in the root directory of the USB flash drive. They should be named
-`lks7688.ldr` and `lks7688.img`.
+`lks7688.ldr` and `lks7688.img`. They're include in the system image, but you
+can get them on the GitHub release page too.
 
 Then do the following:
 
@@ -77,6 +78,14 @@ To break into the bootloader, press the `4` key continuously on a reboot.
 To load an image over TFTP, press the `1` key continuously on reboot until you
 get a prompt. If you stare hard at the messages, you can see what to type. Keep
 in mind that the rootfs is still on the NAND Flash.
+
+## Rebuilding
+
+This system is built similar to other Nerves systems. The bootloader has one
+additional dependency:
+```
+sudo apt-get install libc6:i386
+```
 
 ## Going back to OpenWRT
 
