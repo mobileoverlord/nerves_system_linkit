@@ -106,7 +106,7 @@ updated if you're using the normal Nerves `fwup` proceedures. To update the
 kernel, you must to it manually. The kernel is included in the rootfs in the
 `/boot` directory. After updating the rootfs, you can run:
 ```
-iex> os.cmd 'dd if=/boot/uImage of=/dev/mtdblock3 bs=1M'
+iex> :os.cmd 'dd if=/boot/uImage of=/dev/mtdblock3 bs=1M'
 ```
 
 If you'd like to automate this more, update the `fwup.conf` file to include
