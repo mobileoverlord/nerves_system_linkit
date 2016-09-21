@@ -1,7 +1,7 @@
-%{"nerves_system": {:hex, :nerves_system, "0.1.5", "3b523a49eb6c0f49239d1354b772d824be9d62be13651fe2878a9ba5ffd737b0", [:mix], [{:porcelain, "~> 2.0", [hex: :porcelain, optional: false]}]},
-  "nerves_system_br": {:git, "https://github.com/nerves-project/nerves_system_br.git", "a21bd9c6b3a907b8cbfdbe43194bf5cd33312607", [tag: "a21bd9c6b3a907b8cbfdbe43194bf5cd33312607"]},
+%{"nerves_system": {:hex, :nerves_system, "0.1.6", "d3cff2ae40d3764c75b187cbbdb09985ae169489c26178d765edc9b66bc4e355", [:mix], []},
+  "nerves_system_br": {:hex, :nerves_system_br, "0.7.0", "e838dbec1079fa326d958a3aef4ee14f22d8ffbc91ce7f6b28fc7d9f3197dfa7", [:mix], []},
   "nerves_toolchain": {:hex, :nerves_toolchain, "0.7.1", "164f5fcf07f717d5e8f918965ea043c860b75065768c93a726f763498a7d8792", [:mix], []},
   "nerves_toolchain_arm_unknown_linux_gnueabihf": {:git, "https://github.com/nerves-project/toolchains.git", "d7460ef795f91da026cd5d07f06b1514946ebb16", [sparse: "nerves_toolchain_arm_unknown_linux_gnueabihf"]},
-  "nerves_toolchain_ctng": {:git, "https://github.com/nerves-project/toolchains.git", "d7460ef795f91da026cd5d07f06b1514946ebb16", [sparse: "nerves_toolchain_ctng"]},
-  "nerves_toolchain_mipsel_unknown_linux_musl": {:git, "https://github.com/nerves-project/toolchains.git", "d7460ef795f91da026cd5d07f06b1514946ebb16", [sparse: "nerves_toolchain_mipsel_unknown_linux_musl"]},
+  "nerves_toolchain_ctng": {:hex, :nerves_toolchain_ctng, "0.7.1", "6f46b1591b23d1a017347f8cd9962c24775b2a6fde4e2f2b5251439efef8d6a4", [:mix], []},
+  "nerves_toolchain_mipsel_unknown_linux_musl": {:hex, :nerves_toolchain_mipsel_unknown_linux_musl, "0.7.1", "ec88f8893373788df0b0027b5e85009c1173e183f8bdfc5aeaaf5f4c93457d47", [:mix], [{:nerves_toolchain, "~> 0.7", [hex: :nerves_toolchain, optional: false]}, {:nerves_toolchain_ctng, "~> 0.7", [hex: :nerves_toolchain_ctng, optional: false]}]},
   "porcelain": {:hex, :porcelain, "2.0.2", "c1d4863de3e391195e36457bb3d7e17ee1bca5a44f1d708bc037c313342f58e9", [:mix], []}}
