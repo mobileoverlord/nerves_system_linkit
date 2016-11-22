@@ -22,7 +22,7 @@ config pkg, :nerves_env,
     "linux-4.4",
     "package",
     "rootfs-additions",
-    "busybox.config"
+    "busybox.config",
     "Config.in",
     "external.mk",
     "fwup.conf",
