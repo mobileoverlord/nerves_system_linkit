@@ -3,11 +3,9 @@
   "erlware_commons": {:hex, :erlware_commons, "0.21.0", "a04433071ad7d112edefc75ac77719dd3e6753e697ac09428fc83d7564b80b15", [:rebar3], [{:cf, "0.2.1", [hex: :cf, optional: false]}]},
   "exrm": {:hex, :exrm, "1.0.8", "5aa8990cdfe300282828b02cefdc339e235f7916388ce99f9a1f926a9271a45d", [:mix], [{:relx, "~> 3.5", [hex: :relx, optional: false]}]},
   "getopt": {:hex, :getopt, "0.8.2", "b17556db683000ba50370b16c0619df1337e7af7ecbf7d64fbf8d1d6bce3109b", [:rebar], []},
-  "nerves": {:git, "https://github.com/nerves-project/nerves.git", "da9c9a5bc1bbf0b0d6df1950c50351a3915f3147", [branch: "pkg_gen"]},
-  "nerves_system": {:hex, :nerves_system, "0.1.5", "3b523a49eb6c0f49239d1354b772d824be9d62be13651fe2878a9ba5ffd737b0", [:mix], [{:porcelain, "~> 2.0", [hex: :porcelain, optional: false]}]},
-  "nerves_system_br": {:git, "https://github.com/nerves-project/nerves_system_br.git", "e546eca7b558d59da0cd0748176baa3712a073b4", [branch: "pkginfo"]},
-  "nerves_toolchain": {:hex, :nerves_toolchain, "0.6.3", "c592ea6a189504b1c130510a3c5c2aaf8b73c994628b43d0195544d718c04fb3", [:mix], []},
-  "nerves_toolchain_mipsel_unknown_linux_musl": {:hex, :nerves_toolchain_mipsel_unknown_linux_musl, "0.6.3", "0a7012f43c710ec31aa6576cc96ed4fc9088c076167312c29200f590a3a244f1", [:mix], [{:nerves_toolchain, "~> 0.6.2", [hex: :nerves_toolchain, optional: false]}]},
-  "porcelain": {:hex, :porcelain, "2.0.1", "9c3db2b47d8cf6879c0d9ac79db8657333974a88faff09e856569e00c1b5e119", [:mix], []},
+  "nerves": {:hex, :nerves, "0.4.0-rc.0", "c5e6ef352d885d4f5754bc5d0ab5e1dfc7300a64104f5d6a24196cc3bc5d4189", [:mix], [{:exrm, "~> 1.0.6", [hex: :exrm, optional: false]}]},
+  "nerves_system_br": {:hex, :nerves_system_br, "0.8.0", "abe3be3a9b8b23e227273a81b9b0d1a198c4ec274634fc8cce3728c8a855093f", [:mix], []},
+  "nerves_toolchain_ctng": {:hex, :nerves_toolchain_ctng, "0.8.0-rc.0", "ffdfd5410e2c153ca1ec49a27fb736bcd123e318feb0ad3e4361dae164aca69f", [:mix], []},
+  "nerves_toolchain_mipsel_unknown_linux_musl": {:hex, :nerves_toolchain_mipsel_unknown_linux_musl, "0.8.0-rc.0", "d9bf72b04cc360c74eb56322eecd39fe97a1dc3fa0f3a62d2ed942faece9b3a2", [:mix], [{:nerves, "~> 0.4.0-rc.0", [hex: :nerves, optional: false]}, {:nerves_toolchain_ctng, "~> 0.8.0-rc.0", [hex: :nerves_toolchain_ctng, optional: false]}]},
   "providers": {:hex, :providers, "1.6.0", "db0e2f9043ae60c0155205fcd238d68516331d0e5146155e33d1e79dc452964a", [:rebar3], [{:getopt, "0.8.2", [hex: :getopt, optional: false]}]},
-  "relx": {:hex, :relx, "3.20.0", "b515b8317d25b3a1508699294c3d1fa6dc0527851dffc87446661bce21a36710", [:rebar3], [{:bbmustache, "1.0.4", [hex: :bbmustache, optional: false]}, {:cf, "0.2.1", [hex: :cf, optional: false]}, {:erlware_commons, "0.21.0", [hex: :erlware_commons, optional: false]}, {:getopt, "0.8.2", [hex: :getopt, optional: false]}, {:providers, "1.6.0", [hex: :providers, optional: false]}]}}
+  "relx": {:hex, :relx, "3.21.1", "f989dc520730efd9075e9f4debcb8ba1d7d1e86b018b0bcf45a2eb80270b4ad6", [:rebar3], [{:bbmustache, "1.0.4", [hex: :bbmustache, optional: false]}, {:cf, "0.2.1", [hex: :cf, optional: false]}, {:erlware_commons, "0.21.0", [hex: :erlware_commons, optional: false]}, {:getopt, "0.8.2", [hex: :getopt, optional: false]}, {:providers, "1.6.0", [hex: :providers, optional: false]}]}}
