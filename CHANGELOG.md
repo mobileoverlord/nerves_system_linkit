@@ -1,5 +1,14 @@
 # Changelog
 
+## v0.9.0
+
+This version switches to using the `nerves_package` compiler. This will
+consolidate overall deps and compilers.
+
+  * Nerves.System.BR v0.8.1
+    * Support for distillery
+    * Support for nerves_package compiler
+
 ## v0.6.0
   * Nerves.System.BR v0.6.0
     * Package updates
