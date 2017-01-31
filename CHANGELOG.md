@@ -1,5 +1,10 @@
 # Changelog
 
+## v0.10.0
+
+  * New features
+    * Bump toolchain to use gcc 5.3 (previously using gcc 4.9.3)
+
 ## v0.8.0
 
 This version switches to using the `nerves_package` compiler. This will
