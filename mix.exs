@@ -8,7 +8,7 @@ defmodule NervesSystemLinkit.Mixfile do
   def project do
     [app: :nerves_system_linkit,
      version: @version,
-     elixir: "~> 1.2",
+     elixir: "~> 1.3",
      compilers: Mix.compilers ++ [:nerves_package],
      description: description(),
      package: package(),
@@ -21,9 +21,9 @@ defmodule NervesSystemLinkit.Mixfile do
   end
 
   defp deps do
-    [{:nerves, "~> 0.4"},
-     {:nerves_system_br, "~> 0.9.4"},
-     {:nerves_toolchain_mipsel_unknown_linux_musl, "~> 0.10.0"}]
+    [{:nerves, "~> 0.5", runtime: false },
+     {:nerves_system_br, "~> 0.9.4", runtime: false },
+     {:nerves_toolchain_mipsel_unknown_linux_musl, "~> 0.10.0", runtime: false}]
   end
 
   defp description do
