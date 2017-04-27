@@ -123,7 +123,7 @@ If [available in Hex](https://hex.pm/docs/publish), the package can be installed
         def deps do
           [{:nerves_system_linkit, "~> 0.11.0"}]
         end
-
+        
   2. Ensure nerves_system_linkit is started before your application:
 
         def application do
@@ -141,3 +141,10 @@ following directories:
 https://github.com/openwrt/openwrt/tree/master/target/linux/generic
 https://github.com/openwrt/openwrt/tree/master/target/linux/ramips/patches-4.4
 
+## Wifi setup
+
+In order to use the wifi device, the mt7603e kernel module needs to be loaded,
+by doing for example
+```
+    System.cmd("modprobe", ["mt7603e"])
+```
