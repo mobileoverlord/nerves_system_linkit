@@ -22,7 +22,7 @@ defmodule NervesSystemLinkit.Mixfile do
 
   defp deps do
     [{:nerves, "~> 0.5", runtime: false },
-     {:nerves_system_br, "~> 0.10.0", runtime: false },
+     {:nerves_system_br, "~> 0.12.0", runtime: false },
      {:nerves_toolchain_mipsel_unknown_linux_musl, "~> 0.10.0", runtime: false}]
   end
 
