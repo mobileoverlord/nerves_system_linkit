@@ -2,6 +2,16 @@
 
 ## v0.12.0-dev
 
+This image is backwards incompatible with previous ones, so over-the-air
+upgrades won't work. In theory, it's possible to make them work. If you
+installed a previous version of Nerves onto your LinkIt Smart, this version will
+force you to update the Linux kernel on the NAND Flash. Boot this one and run:
+
+    :os.cmd("dd if=/boot/uImage of=/dev/mtdblock3 bs=1M")
+
+This one's Linux kernel supports the `ext4` file system. Without the new kernel,
+the application partition won't mount.
+
   * nerves_system_br v0.12.1
     * Buildroot 2017.05
     * Erlang/OTP 19.3
