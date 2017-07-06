@@ -1,6 +1,6 @@
 # Changelog
 
-## v0.12.0-dev
+## v0.12.0
 
 This image is backwards incompatible with previous ones, so over-the-air
 upgrades won't work. In theory, it's possible to make them work. If you
