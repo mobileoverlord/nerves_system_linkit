@@ -1,5 +1,7 @@
 # Changelog
 
+## v0.13.0-dev
+
 ## v0.12.0
 
 This image is backwards incompatible with previous ones, so over-the-air
