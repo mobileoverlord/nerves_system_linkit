@@ -1,5 +1,27 @@
 # Changelog
 
+## v0.14.0
+  This release contains an updated toolchain with Linux 4.1 Headers.
+  You will have to clean and compile any c/c++ code in your project and
+  dependencies. Failure to do so will result in an error when producing firmware.
+
+  * nerves_system_br v0.13.5
+    * fwup 0.15.4
+
+  * Nerves toolchain v0.11.0
+    https://github.com/nerves-project/toolchains/releases/tag/v0.11.0
+
+  * New features
+    * The application data partition is now `ext4`. This greatly improves its
+      robustness to corruption. Nerves.Runtime contains code to initialize it on
+      first boot.
+    * Firmware images now contain metadata that can be queried at runtime (see
+      Nerves.Runtime.KV
+    * Firmware updates verify that they're updating the right target. If the target
+      doesn't say that it's an `qemu` through the firmware metadata, the update
+      will fail.
+    * Added meta-misc and meta-vcs-identifier to the `fwup.conf` metadata for use
+      by users and for the regression test framework
 ## v0.13.0
 
   * nerves_system_br v0.13.2
