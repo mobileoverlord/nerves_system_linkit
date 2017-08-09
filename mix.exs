@@ -36,10 +36,10 @@ defmodule NervesSystemLinkit.Mixfile do
 
   defp package do
     [maintainers: ["Frank Hunleth", "Justin Schneck"],
-     files: ["rootfs-additions", "LICENSE", "mix.exs", "nerves_defconfig",
+     files: ["rootfs_overlay", "LICENSE", "mix.exs", "nerves_defconfig",
        "nerves.exs", "README.md", "VERSION", "rootfs_overlay", "Config.in",
        "external.mk", "package", "post-createfs.sh", "fwup.conf", "linux-4.4",
-       "busybox.config", "linux-backports.defconfig"],
+       "linux-backports.defconfig"],
      licenses: ["Apache 2.0"],
      links: %{"Github" => "https://github.com/nerves-project/nerves_system_linkit"}]
   end
