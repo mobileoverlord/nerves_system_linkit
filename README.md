@@ -1,6 +1,6 @@
 # LinkIt Smart
 
-[![Build Status](https://travis-ci.org/nerves-project/nerves_system_linkit.png?branch=master)](https://travis-ci.org/nerves-project/nerves_system_linkit)
+[![CircleCI](https://circleci.com/gh/nerves-project/nerves_system_linkit.svg?style=svg)](https://circleci.com/gh/nerves-project/nerves_system_linkit)
 
 This is the base Nerves System configuration for the [LinkIt Smart](http://www.seeedstudio.com/wiki/LinkIt_Smart_7688_Duo).
 
@@ -123,7 +123,7 @@ If [available in Hex](https://hex.pm/docs/publish), the package can be installed
         def deps do
           [{:nerves_system_linkit, "~> 0.11.0"}]
         end
-        
+
   2. Ensure nerves_system_linkit is started before your application:
 
         def application do
