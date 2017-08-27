@@ -1,6 +1,12 @@
 # Changelog
 
+## v0.14.1
+
+  Updated dependencies
+  * nerves_system_br v0.13.7
+
 ## v0.14.0
+
   This release contains an updated toolchain with Linux 4.1 Headers.
   You will have to clean and compile any c/c++ code in your project and
   dependencies. Failure to do so will result in an error when producing firmware.
@@ -22,6 +28,7 @@
       will fail.
     * Added meta-misc and meta-vcs-identifier to the `fwup.conf` metadata for use
       by users and for the regression test framework
+      
 ## v0.13.0
 
   * nerves_system_br v0.13.2
