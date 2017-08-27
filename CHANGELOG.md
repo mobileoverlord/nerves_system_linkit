@@ -1,5 +1,7 @@
 # Changelog
 
+## v0.14.2-dev
+
 ## v0.14.1
 
   Updated dependencies
@@ -28,7 +30,7 @@
       will fail.
     * Added meta-misc and meta-vcs-identifier to the `fwup.conf` metadata for use
       by users and for the regression test framework
-      
+
 ## v0.13.0
 
   * nerves_system_br v0.13.2
